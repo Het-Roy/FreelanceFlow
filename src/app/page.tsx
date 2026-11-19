@@ -1,33 +1,64 @@
-import { SiteHeader } from "@/components/layout/site-header";
-import { WorkspaceModule } from "@/features/workspace/components/workspace-modules";
+
+import Link from "next/link";
+
+const dashboardSections = [
+  {
+    title: "Clients",
+    description: "Manage your client information.",
+    href: "/clients",
+  },
+  {
+    title: "Projects",
+    description: "Organize projects and deadlines.",
+    href: "/projects",
+  },
+  {
+    title: "Tasks & Milestones",
+    description: "Manage project activities.",
+    href: "/tasks",
+  },
+  {
+    title: "Deliverables",
+    description: "Track submitted work.",
+    href: "/deliverables",
+  },
+  {
+    title: "Payments",
+    description: "Track payments and balances.",
+    href: "/payments",
+  },
+  {
+    title: "Reports",
+    description: "View business performance.",
+    href: "/reports",
+  },
+];
 
 export default function HomePage() {
   return (
-    <main className="app-shell">
-      
-      
-      <SiteHeader />
+    <section className="page-content">
+      <div className="page-heading">
+        <p className="eyebrow">OVERVIEW</p>
 
-      <section className="hero">
-        <p className="eyebrow">
-          Freelance Work
+        <h1>Dashboard</h1>
+
+        <p>
+          Manage your freelance business from one workspace.
         </p>
+      </div>
 
-        <h1>
-          One place to manage your freelance work.
-        </h1>
-
-        <p className="hero-description">
-          Organize clients, projects, tasks, deliverables
-          and payments in one simple workspace.
-        </p>
-      </section>
-
-      <WorkspaceModule />
-
-      <footer className="site-footer">
-        FreelanceFlow · Built with Next.js
-      </footer>
-    </main>
+      <div className="quick-links">
+        {dashboardSections.map((section) => (
+          <Link
+            href={section.href}
+            key={section.href}
+            className="quick-link"
+          >
+            <h2>{section.title}</h2>
+            <p>{section.description}</p>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
