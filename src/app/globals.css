@@ -70,12 +70,6 @@ a:hover {
   place-items: center;
   border: 1px solid var(--foreground);
   font-weight: 700;
-  transition: background-color 180ms ease, color 180ms ease;
-}
-
-.brand:hover .brand-mark {
-  color: var(--background);
-  background: var(--foreground);
 }
 
 .header-note,
